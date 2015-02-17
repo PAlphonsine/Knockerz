@@ -1,0 +1,213 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &199904
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 499904}
+  - 65: {fileID: 6599904}
+  - 114: {fileID: 11499904}
+  - 23: {fileID: 2399904}
+  - 33: {fileID: 3399904}
+  - 148: {fileID: 14899904}
+  - 114: {fileID: 11499902}
+  - 148: {fileID: 14899902}
+  - 114: {fileID: 11499900}
+  - 148: {fileID: 14899900}
+  - 114: {fileID: 11499898}
+  - 148: {fileID: 14899898}
+  m_Layer: 0
+  m_Name: BaseJ
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &499904
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 199904}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.98000002, y: 1.65999997, z: 14.3599997}
+  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!23 &2399904
+Renderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 199904}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!33 &3399904
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 199904}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &6599904
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 199904}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: .200000003}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &11499898
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 199904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 906633fdf2219cb48acd0b629fccc4d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsStarted: 0
+  PlayerCamera: {fileID: 0}
+  EnemyBase: {fileID: 0}
+--- !u!114 &11499900
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 199904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efe4ec8b1072bea4fa335b277d92067f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pv: 10
+  ressourcesMat: 400
+  ressourcesWeap: 400
+  population: 10
+  gold: 500
+  pv1: 10
+  pv2: 10
+  exp: 0
+--- !u!114 &11499902
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 199904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78d4805c941e33948ad85b43c076ae2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _phasesManager: {fileID: 0}
+--- !u!114 &11499904
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 199904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d2f5b06c0eff004b9adb456ded347b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stock: {fileID: 0}
+  phase: 30
+  timez1: 3
+  timez2: 3
+  timez3: 3
+  times: 3
+  nbzombies1: 1
+  nbzombies2: 0
+  nbzombies3: 0
+  nbsurvivor: 1
+  _phasesManager: {fileID: 0}
+  ressourcesMatText: {fileID: 0}
+  ressourcesWeapText: {fileID: 0}
+  pvText: {fileID: 0}
+  scores: {fileID: 0}
+  goldText: {fileID: 0}
+  Survivants: []
+  isTheEnemyBase: 0
+--- !u!148 &14899898
+NetworkView:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 199904}
+  m_Enabled: 1
+  m_StateSynchronization: 0
+  m_Observed: {fileID: 0}
+  m_ViewID:
+    m_ID: 0
+    m_Type: 0
+--- !u!148 &14899900
+NetworkView:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 199904}
+  m_Enabled: 1
+  m_StateSynchronization: 2
+  m_Observed: {fileID: 11499900}
+  m_ViewID:
+    m_ID: 0
+    m_Type: 0
+--- !u!148 &14899902
+NetworkView:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 199904}
+  m_Enabled: 1
+  m_StateSynchronization: 2
+  m_Observed: {fileID: 11499902}
+  m_ViewID:
+    m_ID: 0
+    m_Type: 0
+--- !u!148 &14899904
+NetworkView:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 199904}
+  m_Enabled: 1
+  m_StateSynchronization: 2
+  m_Observed: {fileID: 11499904}
+  m_ViewID:
+    m_ID: 0
+    m_Type: 0
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 199904}
+  m_IsPrefabParent: 1
+  m_IsExploded: 1

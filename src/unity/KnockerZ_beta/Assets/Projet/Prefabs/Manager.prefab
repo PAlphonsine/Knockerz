@@ -1,0 +1,171 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &173660
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 473660}
+  - 114: {fileID: 11473666}
+  - 114: {fileID: 11473664}
+  - 114: {fileID: 11473660}
+  - 114: {fileID: 11473668}
+  - 114: {fileID: 11473662}
+  - 148: {fileID: 14873662}
+  - 148: {fileID: 14873660}
+  m_Layer: 0
+  m_Name: Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &473660
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 173660}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -177.120132, y: -140.529449, z: -11.625}
+  m_LocalScale: {x: .5, y: .5, z: .5}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11473660
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 173660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b798cb9279aef424393d6dcd6175f0dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerScripts:
+  - {fileID: 0}
+  - {fileID: 0}
+  _serverCamera: {fileID: 0}
+  _phasesManager: {fileID: 11473666}
+  nbPlayers: 2
+  _startServerScript: {fileID: 11473664}
+  _networkPanelManager: {fileID: 11473668}
+  _avatarPanel: {fileID: 11473662}
+--- !u!114 &11473662
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 173660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a3d029e368c324a95163adc5652274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _images:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _imagesAvaibles:
+  - {fileID: 21300000, guid: e7252dc7a9e06cc43a822610e6c3568b, type: 3}
+  - {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  _buttons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!114 &11473664
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 173660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6551b611049bf749ab061110818e3ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InputLogin: {fileID: 0}
+  InputPassword: {fileID: 0}
+  UILogin: {fileID: 0}
+  UIPassword: {fileID: 0}
+  UIConnection: {fileID: 0}
+  UISignIn: {fileID: 0}
+  isInscription: 0
+--- !u!114 &11473666
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 173660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93234fbc1cb92bb4e8306253c9444cc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: {fileID: 0}
+  vtime: 2
+  startgame: 1
+  startAction: 0
+  vtimeA: 20
+  switchPhase: 0
+--- !u!114 &11473668
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 173660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3703880dcea48e048b8560ab7fa5889f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _avatarsInGame:
+  - {fileID: 0}
+  - {fileID: 0}
+  _avatars:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: e637f425750e13446bc655deef9ceefe, type: 3}
+  - {fileID: 21300000, guid: e10a0e8f409abd6449eee239fdb05ff2, type: 3}
+--- !u!148 &14873660
+NetworkView:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 173660}
+  m_Enabled: 1
+  m_StateSynchronization: 0
+  m_Observed: {fileID: 0}
+  m_ViewID:
+    m_ID: 0
+    m_Type: 0
+--- !u!148 &14873662
+NetworkView:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 173660}
+  m_Enabled: 1
+  m_StateSynchronization: 1
+  m_Observed: {fileID: 11473666}
+  m_ViewID:
+    m_ID: 0
+    m_Type: 0
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 173660}
+  m_IsPrefabParent: 1
+  m_IsExploded: 1
