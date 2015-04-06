@@ -13,7 +13,9 @@ GameObject:
   - 114: {fileID: 11473660}
   - 114: {fileID: 11473668}
   - 114: {fileID: 11473662}
+  - 114: {fileID: 11487508}
   - 148: {fileID: 14873662}
+  - 114: {fileID: 11414066}
   - 148: {fileID: 14873660}
   m_Layer: 0
   m_Name: Manager
@@ -29,11 +31,40 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 173660}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -177.120132, y: -140.529449, z: -11.625}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: .5, y: .5, z: .5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &11414066
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 173660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 496a32e5b0dc40549a3b05ec1e2c7ed6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tabTransformsPanels:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  shifts:
+  - .800000012
+  - .800000012
+  - .600000024
+  - .600000024
+  - .200000003
+  - .200000003
+  - 0
+  - 0
 --- !u!114 &11473660
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -50,10 +81,14 @@ MonoBehaviour:
   - {fileID: 0}
   _serverCamera: {fileID: 0}
   _phasesManager: {fileID: 11473666}
-  nbPlayers: 2
   _startServerScript: {fileID: 11473664}
-  _networkPanelManager: {fileID: 11473668}
+  _ProfilePanelManager: {fileID: 11473668}
   _avatarPanel: {fileID: 11473662}
+  _inGameMenuButtonScript: {fileID: 0}
+  _supportInventoryManager: {fileID: 0}
+  _badActsInventoryManager: {fileID: 0}
+  _errorLevelPanelScript: {fileID: 11487508}
+  _changeBottomPanelStruct: {fileID: 11414066}
 --- !u!114 &11473662
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -65,19 +100,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17a3d029e368c324a95163adc5652274, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _images:
+  _crossAvatars:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  _imagesAvaibles:
-  - {fileID: 21300000, guid: e7252dc7a9e06cc43a822610e6c3568b, type: 3}
-  - {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  _buttons:
+  _crossSkins:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  xpToAvatarsAndSkins: 00000000000000000000000000000000
 --- !u!114 &11473664
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -91,11 +124,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InputLogin: {fileID: 0}
   InputPassword: {fileID: 0}
+  InputNewPassword: {fileID: 0}
+  InputNewAnswer: {fileID: 0}
+  InputAnswer: {fileID: 0}
+  InputALogin: {fileID: 0}
   UILogin: {fileID: 0}
   UIPassword: {fileID: 0}
-  UIConnection: {fileID: 0}
+  UILogIn: {fileID: 0}
   UISignIn: {fileID: 0}
+  UIForgotPassword: {fileID: 0}
+  UIConnection: {fileID: 0}
   isInscription: 0
+  loadText: {fileID: 0}
+  panelConnection: {fileID: 0}
+  refreshButton: {fileID: 0}
+  refreshButtonText: {fileID: 0}
+  connectToChangePassword: 0
 --- !u!114 &11473666
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -108,10 +152,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time: {fileID: 0}
-  vtime: 2
-  startgame: 1
+  vtime: 20
+  vtimeA: 40
+  startgame: 0
   startAction: 0
-  vtimeA: 20
   switchPhase: 0
 --- !u!114 &11473668
 MonoBehaviour:
@@ -128,11 +172,28 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   _avatars:
+  - {fileID: 21300000, guid: c6e28a0cf3bdd0d44993771b45ec5673, type: 3}
+  - {fileID: 21300000, guid: 210262d31e2c3cd44ba32beb1278d012, type: 3}
+  - {fileID: 21300000, guid: c86fb4a073902a34ba48859d6854d941, type: 3}
+  _levelText:
   - {fileID: 0}
   - {fileID: 0}
+  _nickname:
   - {fileID: 0}
-  - {fileID: 21300000, guid: e637f425750e13446bc655deef9ceefe, type: 3}
-  - {fileID: 21300000, guid: e10a0e8f409abd6449eee239fdb05ff2, type: 3}
+  - {fileID: 0}
+--- !u!114 &11487508
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 173660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b8e7e517b34c484fa16e2b3a2c03b8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  errorPanel: {fileID: 0}
+  xpToEnter: 0
 --- !u!148 &14873660
 NetworkView:
   m_ObjectHideFlags: 1

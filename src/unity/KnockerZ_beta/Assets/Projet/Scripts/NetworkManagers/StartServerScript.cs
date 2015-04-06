@@ -4,223 +4,498 @@ using System.Collections;
 using UnityEngine.UI;
 using System.Security.Cryptography;
 
-public class StartServerScript : MonoBehaviour {
-
-	//Definition du type de jeu et d'une salle pour le MasterServer
+public class StartServerScript : MonoBehaviour
+{
+	// Définition du type de jeu et d'une salle pour le MasterServer
 	private const string typeName = "KnockerZGame";
 	private const string gameName = "Salon_de_jeu";
-
-	//Pour savoir si on veut rafraichir la liste des salles
+	// Booléen de vérification de possibilité de rafraichissement de la liste des salles
 	private bool isRefreshingHostList = false;
-
-	//Liste des salles de jeu disponibles
+	// Liste des salles de jeu disponibles
 	private HostData[] hostList;
-
-	//La salle choisie
+	// Salle choisie
 	private HostData wantTheHost;
-
-	//Indentifients stockés
+	// Identifiants du joueur stockés
 	private string login;
 	private int password;
-
-	//Indentifients rentrés par l'utilisateur
+	private int newpassword;
+	private int sanswer;
+	private int newanswer;
+	private string slogin;
+	// Identifiants rentrés par le joueur
 	[SerializeField]
 	private InputField InputLogin;
 	[SerializeField]
 	private InputField InputPassword;
-
-	//Interface d'identification
 	[SerializeField]
-	public GameObject UILogin;
+	private InputField InputNewPassword;
 	[SerializeField]
-	public GameObject UIPassword;
+	private InputField InputNewAnswer;
 	[SerializeField]
-	public GameObject UIConnection;
+	private InputField InputAnswer;
 	[SerializeField]
-	public GameObject UISignIn;
-
-	public bool isInscription;
+	private InputField InputALogin;
+	// Interface d'identification
+	[SerializeField]
+	private GameObject UILogin;
+	[SerializeField]
+	private GameObject UIPassword;
+	[SerializeField]
+	private GameObject UILogIn;
+	[SerializeField]
+	private GameObject UISignIn;
+	[SerializeField]
+	private GameObject UIForgotPassword;
+	[SerializeField]
+	private GameObject UIConnection;
+	// Booléen de controle d'inscription du joueur
+	[SerializeField]
+	private bool isInscription;
+	// Texte de chargement
+	[SerializeField]
+	private Text loadText;
+	// Panel de connexion
+	[SerializeField]
+	private GameObject panelConnection;
+	// Bouton de rafraichissement de la liste des parties
+	[SerializeField]
+	private Button refreshButton;
+	// Text du bouton de rafraichissement
+	[SerializeField]
+	private Text refreshButtonText;
+	// Compteur de temps de recherche de serveur
+	float cnt = 0f;
 	
-	void Start () {
-        Application.runInBackground = true;
+	// Booléen de controle d'attende de la connexion
+	bool waitConnection = false;
+	// Booléen de controle de possibilité de création d'un serveur
+	bool canCreateServer;
+	// Booléen de controle de connexion
+	bool canConnect;
+	
+	bool tmpbool;
+	
+	// Booléen de controle de connexion pour changer de mot de passe
+	public bool connectToChangePassword=false;
+	
+	void Start ()
+	{
+		Application.runInBackground = true;
 		UILogin.SetActive (false);
 		UIPassword.SetActive (false);
-		UIConnection.SetActive (false);
+		UILogIn.SetActive (false);
 		UISignIn.SetActive (false);
-        /*if (IsServer)
-        {
-            Network.InitializeSecurity();
-            Network.InitializeServer(2, 6600, true);
-        }
-        else
-        {
-            Network.Connect("127.0.0.1", 6600);
-        }*/
-	}
-
-	void OnGUI ()
-	{
-		if (!(Network.isServer ^ Network.isClient)) {
-			GUILayout.BeginVertical ();
-			
-			GUILayout.BeginHorizontal ();
-			
-			if (GUILayout.Button ("Search Hosts")) {
-				RefreshHostList();
-			}
-			GUILayout.EndHorizontal ();
-
-			GUILayout.BeginHorizontal ();
-
-			if (hostList != null)
-			{
-				for (int i = 0; i < hostList.Length; i++) {
-					if (GUILayout.Button(hostList[i].gameName)){
-						UILogin.SetActive (true);
-						UIPassword.SetActive (true);
-						UIConnection.SetActive (true);
-						UISignIn.SetActive (true);
-						wantTheHost=hostList[i];
-					}
-				}
-			}
-
-			GUILayout.EndHorizontal ();
-			
-			GUILayout.BeginHorizontal ();
-			
-			if (GUILayout.Button ("Start Server")) {
-				StartServer ();
-			}
-			
-			GUILayout.EndHorizontal ();
-			
-			GUILayout.EndVertical ();
-		}
-	}
-
-	void StartServer ()
-	{
-		try {
-			Network.InitializeSecurity ();
-			Network.InitializeServer(2, 25000, false);
-			MasterServer.RegisterHost(typeName, gameName);
-		} catch (Exception e) {
-			Debug.LogError (e.Message);
-		}
-		if (!PlayerPrefs.HasKey ("grain")) {
-			PlayerPrefs.SetInt("grain", UnityEngine.Random.seed * 5258425 * Convert.ToInt32(UnityEngine.Random.Range(0f,1000f)));
-		}
+		UIForgotPassword.SetActive (false);
+		loadText.gameObject.SetActive (true);
+		refreshButton.gameObject.SetActive (false);
+		panelConnection.gameObject.SetActive (true);
+		canCreateServer = true;
+		MasterServer.ClearHostList();
+		canConnect = true;
+		tmpbool = true;
+		isInscription = false;
+		newanswer = 0;
+		RefreshHostList();
 	}
 
 	void Update()
 	{
-		if (isRefreshingHostList && MasterServer.PollHostList().Length > 0)
+		// Si le serveur peut se connecter au MasterServer
+		if (canConnect)
 		{
-			isRefreshingHostList = false;
-			hostList = MasterServer.PollHostList();
+			// Si le serveur se rafraichit et que le nombre de serveur lancé sur le MasterServer est supérieur à 0
+			if (isRefreshingHostList && MasterServer.PollHostList().Length > 0)
+			{
+				// On ne rafraichit plus
+				isRefreshingHostList = false;
+				// La liste des hotes devient vide ...
+				hostList = null;
+				// ... et devient la liste des hotes du MasterServer
+				hostList = MasterServer.PollHostList();
+			}
+			// On incrémente le temps de recherche de serveur
+			cnt += Time.deltaTime;
+			// Si la recherche dure plus de 4 secondes
+			if (cnt > 4)
+			{
+				// Si la liste d'hotes est vide
+				if (hostList == null)
+				{
+					// On informe le joueur qu'aucun serveur n'a été trouvé
+					loadText.text = "Aucun serveur trouvé";
+					// On active le bouton de rafraichissement de la recherche
+					refreshButton.gameObject.SetActive(true);
+				}
+			}
+			// Si la liste des hotes n'est pas vide
+			if (hostList != null && tmpbool)
+			{
+				// On informe le joueur que le serveur est en attente de sa connexion
+				loadText.text = "Attente des identifiants";
+				// On active tous les composants nécessaires à la connexion du joueur
+				UILogin.SetActive (true);
+				UIPassword.SetActive (true);
+				UILogIn.SetActive (true);
+				UISignIn.SetActive (true);
+				UIForgotPassword.SetActive(true);
+				// Le joueur veut se connecter au premier hote
+				wantTheHost = hostList[0];
+				tmpbool = false;
+			}
+			// Si le joueur appuie sur la barre d'espace
+			if (Input.GetKeyUp (KeyCode.Space)){
+				// Le serveur se lance
+				StartServer ();
+				// La panel de connexio est désactivé
+				panelConnection.gameObject.SetActive (false);
+			}
 		}
 	}
 
+	// Méthode de démarrage du serveur
+	void StartServer ()
+	{
+		// Si il est possible de créer un serveur
+		if (canCreateServer)
+		{
+			// On essaye ...
+			try
+			{
+				// ... d'initialiser un serveur sécurisé sur le MasterServer d'Unity
+				Network.InitializeSecurity ();
+				Network.InitializeServer(2, 25000, true);
+				MasterServer.RegisterHost(typeName, gameName);
+				// On ne peut plus créer de serveur à partir de ce script précis
+				canCreateServer = false;
+				// La connexion est établie
+				ConnectionOk();
+			}
+			// Si on rencontre une exception ...
+			catch (Exception e)
+			{
+				// ... on l'affiche
+				Debug.LogError (e.Message);
+			}
+			// Si le serveur n'a pas de grain
+			if (!PlayerPrefs.HasKey ("grain"))
+			{
+				// On lui en génère un
+				PlayerPrefs.SetInt("grain", UnityEngine.Random.seed * 5258425 * Convert.ToInt32(UnityEngine.Random.Range(0f,1000f)));
+			}
+		}
+	}
+	
+	// Méthode de rafraichissement de la lsite d'hote
 	private void RefreshHostList()
 	{
+		// Si la liste n'est pas en train de se rafraichir
 		if (!isRefreshingHostList)
 		{
+			// On désactive le bouton de rafraichissement
+			refreshButton.gameObject.SetActive(false);
+			// On informe le joueur de la recherche en cours
+			loadText.text = "Recherche du serveur de jeu";
+			// La liste se rafraichie
 			isRefreshingHostList = true;
+			// On demande au MasterServer une place au nom typeName
 			MasterServer.RequestHostList(typeName);
+			// Le compteur d'attente est réinitialisé
+			cnt = 0f;
 		}
 	}
-
-	public void EnterLogin(){
-
+	
+	// Méthode de lancement du rafraichissement
+	public void LaunchRefresh()
+	{
+		// La liste d'hotes n'est pas rafraichie
+		isRefreshingHostList = false;
+		// On lance le rafraichissement
+		RefreshHostList ();
 	}
-
-	public void EnterPassword(){
-
-	}
-
-	public void Connection(){
+	
+	// Méthode de connexion
+	public void Connection()
+	{
+		// Le login est rentré par le joueur ...
 		login = InputLogin.text;
+		// ... ainsi que le mot de passe
 		string _pwd = InputPassword.text;
-		foreach (char letter in _pwd){
+		// Pour chaque lettre du mot de passe ...
+		foreach (char letter in _pwd)
+		{
+			// ... on essaye ...
 			try
 			{
-				password = Convert.ToInt32(letter) * PlayerPrefs.GetInt("grain");
+				// ... de crypter la lettre selon le login et le grain du joueur
+				password = Convert.ToInt32(letter) * PlayerPrefs.GetInt(login + "grain");
 			}
-			catch(Exception e)
+			// Sinon, s'il y a une erreur ...
+			catch (Exception e)
 			{
+				// ... on l'affiche
 				Debug.Log("Erreur de parsing" + e);
 			}
 		}
+		// Le joueur se connecte au serveur en tant qu'host
 		JoinServer (wantTheHost);
 	}
-
-	public void SignIn(){
-
-		//Création du grain User
-		int keyvalue=0;
-		if (!PlayerPrefs.HasKey ("grain")) {
-			if (!PlayerPrefs.HasKey ("grain")) {
-				string _grain = "ndfNEN_JRn";
-				char[] values = _grain.ToCharArray();
-				foreach (char letter in values)
-				{
-					 keyvalue =+ Convert.ToInt32(letter) * Convert.ToInt32(UnityEngine.Random.Range(0f,1000f));
-				}
-				PlayerPrefs.SetInt("grain", UnityEngine.Random.seed * keyvalue);
-			}
-		}
-
+	
+	// Méthode d'inscription
+	public void SignIn()
+	{
+		// Le login est rentré par le joueur
 		login = InputLogin.text;
-
-		//Cryptage du password
+		
+		// Création du grain du joueur
+		int keyvalue = 0;
+		// Si le login n'existe pas
+		if (!PlayerPrefs.HasKey(login + "grain"))
+		{
+			// On initialise son grain ...
+			string _grain = "ndfNEN_JRn";
+			// ... dont chaque lettre est placée dans un tableau de caractères
+			char[] values = _grain.ToCharArray();
+			// Pour chaque caractère du tableau
+			foreach (char letter in values)
+			{
+				// Le caractère est crypté selon sa transformation en int et un nombre aléatoire
+				keyvalue =+ Convert.ToInt32(letter) * Convert.ToInt32(UnityEngine.Random.Range(0f,1000f));
+			}
+			// Le login est ainsi attribué au joueur
+			PlayerPrefs.SetInt(login + "grain", UnityEngine.Random.seed * keyvalue);
+		}
+		
+		// Le mot de passe est rentré par le joueur
 		string _pwd = InputPassword.text;
-		foreach (char letter in _pwd){
+		// Pour chaque lettre du mot de passe
+		foreach (char letter in _pwd)
+		{
+			// On essaye ...
 			try
 			{
-				password = Convert.ToInt32(letter) * PlayerPrefs.GetInt("grain");
+				// ... de convertir la lettre en entier et de le multiplier selon le login du joueur accompagné de "grain"
+				password = Convert.ToInt32(letter) * PlayerPrefs.GetInt(login + "grain");
 			}
+			// Sinon, s'il y a une erreur ...
 			catch(Exception e)
 			{
+				// ... on l'affiche
 				Debug.Log("Erreur de parsing" + e);
 			}
 		}
+		
+		// Le joueur entre sa réponse à la question secrète
+		string _newanswer = InputNewAnswer.text;
+		// Pour chaque lettre de sa réponse
+		foreach (char letter in _newanswer)
+		{
+			// On essaye ...
+			try
+			{
+				// ... de convertir la lettre en entier et de le multiplier selon le login du joueur accompagné de "grain"
+				newanswer = Convert.ToInt32(letter) * PlayerPrefs.GetInt(login + "grain");
+			}
+			// Sinon, s'il y a une erreur ...
+			catch(Exception e)
+			{
+				// ... on l'affiche
+				Debug.Log("Erreur de parsing" + e);
+			}
+		}
+		// Le joueur est désormais inscrit
 		isInscription = true;
+		// Le joueur se connecte au serveur en tant qu'host
 		JoinServer (wantTheHost);
 	}
-
+	
+	// Méthode d'affiliation au serveur
 	private void JoinServer(HostData hostData)
 	{
-		try {
+		// On essaye ...
+		try
+		{
+			// ... d'afficher l'état de la connexion au serveur
+			loadText.text = "Connexion au serveur de jeu";
+			// Le joueur est en attente de connexion au serveur
+			waitConnection = true;
+			// On connecte le serveur selon l'hote
 			Network.Connect(hostData);
-		} catch (Exception e) {
+		}
+		// Sinon, s'il y a une erreur ...
+		catch (Exception e)
+		{
+			// ... on l'affiche
+			waitConnection = false;
 			Debug.LogError (e.Message);
 		}
 	}
 	
-	void StartClient ()
+	// Conflit de nom avec un autre script
+	// Méthode de préparation à un changement de mot de passe
+	public void PrepareToChangePassword()
 	{
-		try {
-			Network.Connect("192.168.1.98", 25000);
-		} catch (Exception e) {
-			Debug.LogError (e.Message);
+		// Le joueur rentre la réponse à la question secrète
+		string _sanswer = InputAnswer.text;
+		// Pour chaque lettre de la réponse
+		foreach (char letter in _sanswer)
+		{
+			// On essaye ...
+			try
+			{
+				// ... de crypter chaque lettre de cette réponse de la meme manière dont on a crypté sa réponse lors de son inscription
+				sanswer = Convert.ToInt32(letter) * PlayerPrefs.GetInt(InputALogin.text + "grain");
+			}
+			// Sinon, s'il y a une erreur ...
+			catch(Exception e)
+			{
+				// ... on l'affiche
+				Debug.Log("Erreur de parsing" + e);
+			}
+		}
+		
+		// Le joueur rentre son nouveau mot de passe
+		string _newpwd = InputNewPassword.text;
+		// Pour chaque lettre du nouveau mot de passe
+		foreach (char letter in _newpwd)
+		{
+			// On essaye ...
+			try
+			{
+				// ... de crypter la lettre
+				newpassword = Convert.ToInt32(letter) * PlayerPrefs.GetInt(InputALogin.text + "grain");
+			}
+			// Sinon, s'il y a une erreur ...
+			catch(Exception e)
+			{
+				// ... on l'affiche
+				Debug.Log("Erreur de parsing" + e);
+			}
+		}
+		
+		// Le joueur rentre son login
+		slogin = InputALogin.text;
+		
+		// Le joueur s'est connecté afin de changer son mot de passe
+		connectToChangePassword = true;
+		// Le joueur se connecte au serveur en tant qu'host
+		JoinServer (wantTheHost);
+	}
+	
+	// Méthode de validation de la connexion
+	public void ConnectionOk()
+	{
+		// Tous les paramètres de connexion sont réinitialisés une fois le joueur correctement connecté
+		canConnect = false;
+		UILogin.SetActive (false);
+		UIPassword.SetActive (false);
+		UILogIn.SetActive (false);
+		UISignIn.SetActive (false);
+		UIForgotPassword.SetActive (false);
+		UIConnection.SetActive (false);
+		panelConnection.SetActive (false);
+		loadText.gameObject.SetActive (false);
+		refreshButton.gameObject.SetActive (false);
+		// La connexion n'est plus en cours
+		loadText.text = "";
+	}
+
+	[RPC]
+	public void ConnectionFaild(int errorType)
+	{
+		switch (errorType) {
+		case 1:
+			loadText.text = "Un login est requis";
+			break;
+		case 2:
+			loadText.text = "Le login existe déja";
+			break;
+		case 3:
+			loadText.text = "Le login n'existe pas";
+			break;
+		case 4:
+			loadText.text = "Le mot de passe est erroné";
+			break;
+		case 5:
+			loadText.text = "Vous etes déja connecté";
+			break;
+		case 6:
+			loadText.text = "La partie est déja lancée avec un autre joueur";
+			break;
+		case 7:
+			loadText.text = "Mauvaise réponse";
+			break;
+		case 403:
+			loadText.text = "Mot de passe changé";
+			break;
+		default:
+			loadText.text = "Erreur inconnue";
+			break;
+		}
+	}
+	
+	// Accesseurs
+	public string Login
+	{
+		get { return login ;}
+		set { login = value; }
+	}
+	
+	public int Password
+	{
+		get { return password; }
+		set { password = value; }
+	}
+	
+	public int NewPassword
+	{
+		get { return newpassword; }
+		set { newpassword = value; }
+	}
+	
+	public int Sanswer
+	{
+		get { return sanswer; }
+		set { sanswer = value; }
+	}
+	
+	public int Newanswer
+	{
+		get { return newanswer; }
+		set { newanswer = value; }
+	}
+	
+	public string inputALogin
+	{
+		get{ return InputALogin.text; }
+	}
+	
+	public string Slogin
+	{
+		get{ return slogin; }
+		set { slogin = value; }
+	}
+	
+	public bool WaitConnection
+	{
+		get { return waitConnection; }
+		set { waitConnection = value; }
+	}
+
+	public bool IsInscription {
+		get {
+			return isInscription;
+		}
+		set {
+			isInscription = value;
 		}
 	}
 
-	public void ConnectionOk(){
-		UILogin.SetActive (false);
-		UIPassword.SetActive (false);
-		UIConnection.SetActive (false);
-		UISignIn.SetActive (false);
-	}
-
-	public string Login{
-		get {return login;}
-		set { login = value;}
-	}
-
-	public int Password{
-		get {return password;}
-		set { password = value;}
+	public GameObject PanelConnection {
+		get {
+			return panelConnection;
+		}
+		set {
+			panelConnection = value;
+		}
 	}
 }

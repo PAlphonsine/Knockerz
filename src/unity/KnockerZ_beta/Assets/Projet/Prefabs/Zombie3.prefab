@@ -12,9 +12,10 @@ GameObject:
   - 65: {fileID: 6501358}
   - 23: {fileID: 2301358}
   - 54: {fileID: 5401358}
-  - 148: {fileID: 14801358}
   - 195: {fileID: 19501358}
   - 114: {fileID: 11401358}
+  - 148: {fileID: 14801358}
+  - 148: {fileID: 14872908}
   m_Layer: 2
   m_Name: Zombie3
   m_TagString: Zombie
@@ -79,7 +80,7 @@ Transform:
   m_GameObject: {fileID: 101358}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.61000001, z: 4.82999992}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.20000005, y: 1.20000005, z: 1.20000005}
   m_Children:
   - {fileID: 401360}
   - {fileID: 403554}
@@ -228,7 +229,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stock: {fileID: 0}
   destination: {fileID: 0}
+  pv: 1000
+  dps: 4
   lifeSprite: {fileID: 103556}
+  type: 3
 --- !u!148 &14801358
 NetworkView:
   m_ObjectHideFlags: 1
@@ -237,7 +241,19 @@ NetworkView:
   m_GameObject: {fileID: 101358}
   m_Enabled: 1
   m_StateSynchronization: 1
-  m_Observed: {fileID: 0}
+  m_Observed: {fileID: 11401358}
+  m_ViewID:
+    m_ID: 0
+    m_Type: 0
+--- !u!148 &14872908
+NetworkView:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 101358}
+  m_Enabled: 0
+  m_StateSynchronization: 1
+  m_Observed: {fileID: 401358}
   m_ViewID:
     m_ID: 0
     m_Type: 0
@@ -249,7 +265,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 101358}
   m_Enabled: 1
   m_Radius: .5
-  m_Speed: 2
+  m_Speed: 1.20000005
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120

@@ -5,17 +5,21 @@ TagManager:
   tags:
   - 
   - Zombie
-  - cube
+  - Turret
   - place
   - Fighter
   - Survivor
   - Menu
-  - 
-  - Path
+  - PathJ1
+  - PathJ2
   - Meat
   - AirBomb
   - Door
   - InBase
+  - 
+  - Path
+  - 
+  - cube
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

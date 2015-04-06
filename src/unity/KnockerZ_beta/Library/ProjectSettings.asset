@@ -8,12 +8,13 @@ PlayerSettings:
   defaultScreenOrientation: 0
   targetDevice: 2
   targetGlesGraphics: 1
+  targetIOSGraphics: -1
   targetResolution: 0
   accelerometerFrequency: 60
-  companyName: LesFiersChevaliers
-  productName: KnockerZ_alpha
-  defaultCursor: {fileID: 0}
-  cursorHotspot: {x: 0, y: 0}
+  companyName: Survivors
+  productName: KnockerZ_beta
+  defaultCursor: {fileID: 2800000, guid: ddb27f015dbb23e45853317a6c34c3ef, type: 3}
+  cursorHotspot: {x: 11, y: 3}
   defaultScreenWidth: 1024
   defaultScreenHeight: 768
   defaultScreenWidthWeb: 960
@@ -37,7 +38,7 @@ PlayerSettings:
   use24BitDepthBuffer: 0
   defaultIsFullScreen: 1
   defaultIsNativeResolution: 1
-  runInBackground: 0
+  runInBackground: 1
   captureSingleScreen: 0
   Override IPod Music: 0
   Prepare IOS For Recording: 0
@@ -72,6 +73,7 @@ PlayerSettings:
   metroEnableLowLatencyPresentationAPI: 0
   productGUID: 3f59d2b0b0d079d419a5da8f56df97b3
   iPhoneBundleVersion: 1.0
+  iPhoneShortBundleVersion: 1.0
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 9
   AndroidPreferredInstallLocation: 1
@@ -85,7 +87,7 @@ PlayerSettings:
   APKExpansionFiles: 0
   StripUnusedMeshComponents: 0
   iPhoneSdkVersion: 988
-  iPhoneTargetOSVersion: 10
+  iPhoneTargetOSVersion: 16
   uIPrerenderedIcon: 0
   uIRequiresPersistentWiFi: 0
   uIStatusBarHidden: 1
@@ -101,6 +103,15 @@ PlayerSettings:
   iPadHighResPortraitSplashScreen: {fileID: 0}
   iPadLandscapeSplashScreen: {fileID: 0}
   iPadHighResLandscapeSplashScreen: {fileID: 0}
+  iOSLaunchScreenType: 0
+  iOSLaunchScreenPortrait: {fileID: 0}
+  iOSLaunchScreenLandscape: {fileID: 0}
+  iOSLaunchScreenBackgroundColor:
+    serializedVersion: 2
+    rgba: 4285163857
+  iOSLaunchScreenFillPct: 100
+  iOSLaunchScreenSize: 100
+  iOSLaunchScreenCustomXibPath: 
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   AndroidKeystoreName: 
@@ -109,8 +120,24 @@ PlayerSettings:
   m_BuildTargetIcons:
   - m_BuildTarget: 
     m_Icons:
-    - m_Icon: {fileID: 0}
+    - m_Icon: {fileID: 2800000, guid: 81b4750f2103e00458ba0e50ffce1edf, type: 3}
       m_Size: 128
+  - m_BuildTarget: Standalone
+    m_Icons:
+    - m_Icon: {fileID: 2800000, guid: ddaffd426297369499b91cbd840cc197, type: 3}
+      m_Size: 1024
+    - m_Icon: {fileID: 2800000, guid: 81b4750f2103e00458ba0e50ffce1edf, type: 3}
+      m_Size: 512
+    - m_Icon: {fileID: 2800000, guid: 4538e18a14080854081f5ba02ea42e06, type: 3}
+      m_Size: 256
+    - m_Icon: {fileID: 2800000, guid: ff301616c55d2ff4c8a5c6285b85bb37, type: 3}
+      m_Size: 128
+    - m_Icon: {fileID: 2800000, guid: c3fda430ec1777e43b79e3e308aaf078, type: 3}
+      m_Size: 48
+    - m_Icon: {fileID: 2800000, guid: 8d38814b3ea619647994321715e60fe7, type: 3}
+      m_Size: 32
+    - m_Icon: {fileID: 2800000, guid: a627098dbaffe184d90d704f824289b8, type: 3}
+      m_Size: 16
   m_BuildTargetBatching:
   - m_BuildTarget: Standalone
     m_StaticBatching: 1
@@ -250,6 +277,12 @@ PlayerSettings:
   tizenGPSPermissions: 0
   tizenMicrophonePermissions: 0
   stvDeviceAddress: 
+  wp8UnprocessedPlugins: []
+  intPropertyNames:
+  - iOS::Architecture
+  - iOS::ScriptingBackend
+  iOS::Architecture: 2
+  iOS::ScriptingBackend: 0
   firstStreamedLevelWithResources: 0
   unityRebuildLibraryVersion: 9
   unityForwardCompatibleVersion: 39

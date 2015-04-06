@@ -1,47 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SupportButtonScript : MonoBehaviour {
+public class SupportButtonScript : MonoBehaviour
+{
+	// Panel du bouton Soutien
 	[SerializeField]
 	GameObject supportButtonPanel;
+	// Panel de la boutique de soutiens
 	[SerializeField]
 	GameObject supportShopPanel;
-
-	// Use this for initialization
-	void Start () {
 	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
-	void FixedUpdate () {
-		
-	}
-
+	// Méthode d'activation et de désactivation du panel du bouton Soutien
 	public void SupportButtonPanelEnabled()
 	{
-		if (this.supportButtonPanel.activeSelf == false)
-		{
-			this.supportButtonPanel.SetActive(true);
-		}
-		else
-		{
-			this.supportButtonPanel.SetActive(false);
-		}
+		this.supportButtonPanel.SetActive (!this.supportButtonPanel.activeSelf);
 	}
-
+	
+	// Méthode d'activation et de désactivation du panel de la boutique de soutiens
 	public void SupportShopPanelEnabled()
 	{
-		if (this.supportShopPanel.activeSelf == false)
-		{
-			this.supportShopPanel.SetActive(true);
-		}
-		else
-		{
-			this.supportShopPanel.SetActive(false);
-		}
+		this.supportShopPanel.SetActive(!this.supportShopPanel.activeSelf);
 	}
 }

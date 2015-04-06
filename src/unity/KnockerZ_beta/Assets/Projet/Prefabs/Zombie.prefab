@@ -61,9 +61,10 @@ GameObject:
   - 65: {fileID: 6556842}
   - 23: {fileID: 2356842}
   - 54: {fileID: 5456842}
-  - 148: {fileID: 14856842}
   - 195: {fileID: 19556842}
   - 114: {fileID: 11456842}
+  - 148: {fileID: 14856842}
+  - 148: {fileID: 14843806}
   m_Layer: 2
   m_Name: Zombie
   m_TagString: Zombie
@@ -228,7 +229,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stock: {fileID: 0}
   destination: {fileID: 0}
+  pv: 500
+  dps: 2
   lifeSprite: {fileID: 155084}
+  type: 1
+--- !u!148 &14843806
+NetworkView:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 156842}
+  m_Enabled: 1
+  m_StateSynchronization: 1
+  m_Observed: {fileID: 456842}
+  m_ViewID:
+    m_ID: 0
+    m_Type: 0
 --- !u!148 &14856842
 NetworkView:
   m_ObjectHideFlags: 1
@@ -237,7 +253,7 @@ NetworkView:
   m_GameObject: {fileID: 156842}
   m_Enabled: 1
   m_StateSynchronization: 1
-  m_Observed: {fileID: 0}
+  m_Observed: {fileID: 11456842}
   m_ViewID:
     m_ID: 0
     m_Type: 0

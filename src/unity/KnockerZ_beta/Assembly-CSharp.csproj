@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{27B15FA8-3BE0-F858-462B-B3B459E78AF1}</ProjectGuid>
+	<ProjectGuid>{FD226B78-B90E-00B2-702E-C71E589CF12D}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -19,7 +19,7 @@
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_4_6_1;UNITY_4_6;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_4_6_FEATURES;INCLUDE_WP_BLUE_SUPPORT;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_4_6_3;UNITY_4_6;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_IL2CPP;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_4_6_FEATURES;INCLUDE_WP_BLUE_SUPPORT;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;UNITY5_SCRIPTING_IN_UNITY4;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_MONO;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -39,48 +39,59 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Projet\Scripts\GameManagers\BaseScript.cs" />
-     <Compile Include="Assets\Projet\Scripts\GameManagers\PhasesManager.cs" />
-     <Compile Include="Assets\Projet\Scripts\GameManagers\PlayerScript.cs" />
-     <Compile Include="Assets\Projet\Scripts\GameManagers\StockZombies.cs" />
-     <Compile Include="Assets\Projet\Scripts\GameManagers\_STATICS.cs" />
-     <Compile Include="Assets\Projet\Scripts\Gameplay\AirBombScript.cs" />
+     <Compile Include="Assets\Projet\Scripts\Gameplay\ChangeDestination.cs" />
      <Compile Include="Assets\Projet\Scripts\Gameplay\DoorScript.cs" />
      <Compile Include="Assets\Projet\Scripts\Gameplay\DoorsManager.cs" />
      <Compile Include="Assets\Projet\Scripts\Gameplay\FighterScript.cs" />
-     <Compile Include="Assets\Projet\Scripts\Gameplay\MeatScript.cs" />
-     <Compile Include="Assets\Projet\Scripts\Gameplay\SupportInventoryManager.cs" />
-     <Compile Include="Assets\Projet\Scripts\Gameplay\SupportShopManager.cs" />
      <Compile Include="Assets\Projet\Scripts\Gameplay\SurvivorScript.cs" />
      <Compile Include="Assets\Projet\Scripts\Gameplay\ZombieScript.cs" />
-     <Compile Include="Assets\Projet\Scripts\Interface\AvatarsPanel.cs" />
+     <Compile Include="Assets\Projet\Scripts\Interactions\AirBombScript.cs" />
+     <Compile Include="Assets\Projet\Scripts\Interactions\BadActsInventoryManager.cs" />
+     <Compile Include="Assets\Projet\Scripts\Interactions\BadActsShopManager.cs" />
+     <Compile Include="Assets\Projet\Scripts\Interactions\LootingMissionsScript.cs" />
+     <Compile Include="Assets\Projet\Scripts\Interactions\MeatScript.cs" />
+     <Compile Include="Assets\Projet\Scripts\Interactions\SabotageMissionsScript.cs" />
+     <Compile Include="Assets\Projet\Scripts\Interactions\SupportInventoryManager.cs" />
+     <Compile Include="Assets\Projet\Scripts\Interactions\SupportShopManager.cs" />
+     <Compile Include="Assets\Projet\Scripts\Interface\AvatarsAndSkinsPanel.cs" />
      <Compile Include="Assets\Projet\Scripts\Interface\BadActsButtonScript.cs" />
+     <Compile Include="Assets\Projet\Scripts\Interface\ChangeBottomPanelStruct.cs" />
+     <Compile Include="Assets\Projet\Scripts\Interface\CursorManager.cs" />
+     <Compile Include="Assets\Projet\Scripts\Interface\ErrorLevelPanelScript.cs" />
      <Compile Include="Assets\Projet\Scripts\Interface\EventsNewspaperButtonScript.cs" />
      <Compile Include="Assets\Projet\Scripts\Interface\InGameMenuButtonScript.cs" />
      <Compile Include="Assets\Projet\Scripts\Interface\MissionsButtonScript.cs" />
+     <Compile Include="Assets\Projet\Scripts\Interface\ProfilePanelManager.cs" />
      <Compile Include="Assets\Projet\Scripts\Interface\RessourcesButtonScript.cs" />
      <Compile Include="Assets\Projet\Scripts\Interface\SupportButtonScript.cs" />
      <Compile Include="Assets\Projet\Scripts\MainMenu\CreditsMenuScript.cs" />
+     <Compile Include="Assets\Projet\Scripts\MainMenu\LevelsMenuScript.cs" />
      <Compile Include="Assets\Projet\Scripts\MainMenu\MainMenuScript.cs" />
+     <Compile Include="Assets\Projet\Scripts\MainMenu\ResolutionsManager.cs" />
      <Compile Include="Assets\Projet\Scripts\MainMenu\SettingsMenuScript.cs" />
-     <Compile Include="Assets\Projet\Scripts\NetworkManagers\DebugLogNetwork.cs" />
-     <Compile Include="Assets\Projet\Scripts\NetworkManagers\NetworkPanelManager.cs" />
+     <Compile Include="Assets\Projet\Scripts\MainMenu\TextsColorChangeScript.cs" />
+     <Compile Include="Assets\Projet\Scripts\MainMenu\VolumeManager.cs" />
+     <Compile Include="Assets\Projet\Scripts\Managers\BaseScript.cs" />
+     <Compile Include="Assets\Projet\Scripts\Managers\GameStats.cs" />
+     <Compile Include="Assets\Projet\Scripts\Managers\PhasesManager.cs" />
+     <Compile Include="Assets\Projet\Scripts\Managers\PlayerScript.cs" />
+     <Compile Include="Assets\Projet\Scripts\Managers\StockZombies.cs" />
+     <Compile Include="Assets\Projet\Scripts\Managers\_STATICS.cs" />
      <Compile Include="Assets\Projet\Scripts\NetworkManagers\PlayersManager.cs" />
      <Compile Include="Assets\Projet\Scripts\NetworkManagers\StartServerScript.cs" />
-     <Compile Include="Assets\Projet\Scripts\RessourcesManager\GameStats.cs" />
      <Compile Include="Assets\Projet\Scripts\RessourcesManager\PopManager.cs" />
      <Compile Include="Assets\Projet\Scripts\RessourcesManager\ReturningSurvivors.cs" />
      <Compile Include="Assets\Projet\Scripts\RessourcesManager\SentSurvivorScript.cs" />
-     <Compile Include="Assets\Projet\Scripts\TestXML\Monster.cs" />
-     <Compile Include="Assets\Projet\Scripts\TestXML\Test.cs" />
-     <Compile Include="Assets\Projet\Scripts\TestXML\test2.cs" />
+     <Compile Include="Assets\Projet\Scripts\SabotageManager\FinalSabotageScript.cs" />
+     <Compile Include="Assets\Projet\Scripts\SabotageManager\SabotageManScript.cs" />
+     <Compile Include="Assets\Projet\Scripts\Tools\Destruction.cs" />
      <Compile Include="Assets\Projet\Scripts\Turrets\BulletFiring.cs" />
      <Compile Include="Assets\Projet\Scripts\Turrets\EmptyPlace.cs" />
      <Compile Include="Assets\Projet\Scripts\Turrets\TurretAttackD.cs" />
@@ -91,8 +102,17 @@
      <Compile Include="Assets\Projet\Scripts\Turrets\TurretMenuD.cs" />
      <Compile Include="Assets\Projet\Scripts\Turrets\TurretMenuH.cs" />
      <Compile Include="Assets\Projet\Scripts\Turrets\TurretMenuSet.cs" />
+     <Compile Include="Assets\Projet\Scripts\Turrets\TurretsComponentsBook.cs" />
+     <Compile Include="Assets\Projet\Scripts\Tutorial\TutoDoorScript.cs" />
+     <Compile Include="Assets\Projet\Scripts\Tutorial\TutoPartDoorScript.cs" />
+     <Compile Include="Assets\Projet\Scripts\Tutorial\TutoSurvivor.cs" />
+     <Compile Include="Assets\Projet\Scripts\Tutorial\TutorialScript.cs" />
+     <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-Basic.shader" />
+     <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-BasicOutline.shader" />
+     <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-LightedOutline.shader" />
+     <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-Lighted.shader" />
  <Reference Include="UnityEngine.UI">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
+ <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.3/UnityEngine.UI.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

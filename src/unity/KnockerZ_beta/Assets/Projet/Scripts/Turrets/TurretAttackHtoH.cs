@@ -1,43 +1,78 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TurretAttackHtoH : MonoBehaviour {
+public class TurretAttackHtoH : MonoBehaviour
+{
+	// Script de gestion du fighter
+	[SerializeField]
+	FighterScript _fighterScript;
+	// Objet fighter
+	[SerializeField]
+	GameObject fighter;
+	// Variable pour lancer la coroutine une seule fois
+	bool mustWait = false;
 
-	//public GameObject[] bullets;
-	public GameObject bullet;
-	bool HasFired = true;
-	//int currentBullet=0;
-
-	void Start(){
-		//Just for uncross this script
-	}
-
-	void OnTriggerStay(Collider collider)
+	// Mise à jour des caractéristiques du fighter
+	public void UpdateFighter(int dam, int pv)
 	{
-		if (collider.gameObject.tag.Equals ("Zombie"))
-		{
-			if (HasFired)
-			{
-				StartCoroutine (Fire(collider));
-				HasFired = false;
-			}else{
-				if (bullet.activeSelf == false)
-					HasFired = true;
-			}
-		}
-
+		// Pour les dommages
+		_fighterScript.Dps = dam;
+		// Pour les points de vie courants
+		_fighterScript.Pv = pv;
+		// Pour les points de vie actuels
+		_fighterScript.InitPv = pv;
+		// Ppour la barre de vie
+		_fighterScript.StartPv = pv;
 	}
 
-	IEnumerator Fire(Collider collider){
-		//_tir = new GameObject();
-		/*if (bullets [currentBullet].activeSelf == false){
-			bullets [currentBullet].GetComponent<Firing>().v_position[1] = collider.gameObject.transform;
-			bullets [currentBullet].SetActive(true);
-			currentBullet= (currentBullet+1) % bullets.Length;
-		}*/
-		bullet.GetComponent<BulletFiring>().v_position[1] = collider.gameObject.transform;
-		bullet.SetActive(true);
+	// Mise à jour de la stat d'esquive
+	public void UpdateDodgeFighter(float dodge)
+	{
+		_fighterScript.Dodge = dodge;
+	}
 
-		yield return new WaitForSeconds(1f);
+	// mIse à jour de la stat de coups critiques
+	public void UpdateCriticalHitsFighter(float critic)
+	{
+		_fighterScript.CriticalHits = critic;
+	}
+
+	void Update()
+	{
+		// Si le fighter est activé et que l'on peut lancer la coroutine
+		if (!fighter.activeSelf && !mustWait){
+			// On lance la coroutine d'attente
+			StartCoroutine(WaitAndReset());
+			// On ne peut pas relancer la fonction
+			mustWait = true;
+		}
+	}
+
+	// coroutine d'attente
+	IEnumerator WaitAndReset()
+	{
+		// On rend la main à Unity quelques secondes
+		yield return new WaitForSeconds (8f);
+		// A la on active le fighter
+		fighter.SetActive (true);
+		// On peut relancer la fonction
+		mustWait = false;
+	}
+
+	// Accesseurs
+
+	public void EnableFighter()
+	{
+		fighter.SetActive (true);
+	}
+	
+	public bool MustWait 
+	{
+		get {
+			return mustWait;
+		}
+		set {
+			mustWait = value;
+		}
 	}
 }

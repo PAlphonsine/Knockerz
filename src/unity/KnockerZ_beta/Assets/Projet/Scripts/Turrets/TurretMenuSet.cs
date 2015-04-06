@@ -1,27 +1,53 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TurretMenuSet : MonoBehaviour {
+public class TurretMenuSet : MonoBehaviour
+{
+	// Boutons du menu
+	public GameObject[] menus;
+	// Boutons de specialisation
+	public GameObject[] spes;
 	
-	public GameObject[] tabs;
-
-	// Use this for initialization
-	void Start () {
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
-	public void ActiveMenu(){
-		foreach (GameObject n in tabs) {
+	// Méthode d'activation du menu
+	public void ActiveMenu()
+	{
+		// Pour chaque bouton du menu
+		foreach (GameObject n in menus)
+		{
+			// On active le bouton
 			n.SetActive(true);
 		}
 	}
 
-	public void DesactiveMenu(){
-		foreach (GameObject n in tabs) {
+	// Méthode d'activation des spes
+	public void ActiveSpe()
+	{
+		// Pour chaque bouton des spes
+		foreach (GameObject n in spes)
+		{
+			// On active le bouton
+			n.SetActive(true);
+		}
+	}
+	
+	// Méthode de désactivation du menu
+	public void DesactiveMenu()
+	{
+		// Pour chaque bouton du menu
+		foreach (GameObject n in menus)
+		{
+			// On désactive le bouton
+			n.SetActive(false);
+		}
+	}
+
+	// Méthode de désactivation des spes
+	public void DesactiveSpe()
+	{
+		// Pour chaque bouton des spes
+		foreach (GameObject n in spes)
+		{
+			// On désactive le bouton
 			n.SetActive(false);
 		}
 	}

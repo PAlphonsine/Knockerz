@@ -2,61 +2,49 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class SettingsMenuScript : MonoBehaviour {
-	// Tous les composants du menu d'options
+public class SettingsMenuScript : MonoBehaviour
+{
+	// Panel du menu des options
 	[SerializeField]
-	Text settingsMenuTitle;
+	GameObject settingsMenuPanel;
+	// Toggle du mode grand écran
 	[SerializeField]
 	Toggle fullscreenToggle;
+	// Script de gestion de résolutions
 	[SerializeField]
-	Button validateButton;
-	[SerializeField]
-	Button backButton;
-
-	// Booléens de vérification de changement d'options et de validation des changements
-	//private bool settingsChanged;
-	//private bool validated;
+	ResolutionsManager resolutionsManager;
 	
 	// Use this for initialization
-	void Start () {
-		//this.settingsChanged = false;
-		//this.validated = false;
+	void Start ()
+	{
 		if (Screen.fullScreen == true)
 		{
-			this.fullscreenToggle.enabled = true;
+			this.fullscreenToggle.isOn = true;
 		}
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
-	void FixedUpdate () {
-
-	}
-
+	// Méthode de définition du mode grand écran
 	public void FullScreenSet()
 	{
-		Screen.fullScreen = !Screen.fullScreen;
-	}
-
-	// Méthode d'activation/désactivation du menu d'options
-	public void SettingsMenuEnabled(bool b)
-	{
-		if (b == true)
+		if (this.fullscreenToggle.isOn == true)
 		{
-			this.settingsMenuTitle.enabled = true;
-			this.fullscreenToggle.gameObject.SetActive(true);
-			this.validateButton.gameObject.SetActive(true);
-			this.backButton.gameObject.SetActive(true);
+			Screen.fullScreen = true;
 		}
 		else
 		{
-			this.settingsMenuTitle.enabled = false;
-			this.fullscreenToggle.gameObject.SetActive(false);
-			this.validateButton.gameObject.SetActive(false);
-			this.backButton.gameObject.SetActive(false);
+			Screen.fullScreen = false;
 		}
+	}
+
+	public void ResolutionSet(int i)
+	{
+		Screen.SetResolution (Screen.resolutions [i].width, Screen.resolutions [i].height, Screen.fullScreen);
+	}
+	
+	// Méthode d'activation/désactivation du menu d'options
+	public void SettingsMenuPanelEnabled()
+	{
+		// Si le panel est activé, on le désactive et inversement
+		this.settingsMenuPanel.SetActive (!this.settingsMenuPanel.activeSelf);
 	}
 }

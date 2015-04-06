@@ -8,10 +8,10 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 499904}
-  - 65: {fileID: 6599904}
-  - 114: {fileID: 11499904}
   - 23: {fileID: 2399904}
   - 33: {fileID: 3399904}
+  - 65: {fileID: 6599904}
+  - 114: {fileID: 11499904}
   - 148: {fileID: 14899904}
   - 114: {fileID: 11499902}
   - 148: {fileID: 14899902}
@@ -33,7 +33,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 199904}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.98000002, y: 1.65999997, z: 14.3599997}
+  m_LocalPosition: {x: -50.0999985, y: 1.70000005, z: 14.3999996}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -91,6 +91,7 @@ MonoBehaviour:
   IsStarted: 0
   PlayerCamera: {fileID: 0}
   EnemyBase: {fileID: 0}
+  StartButton: {fileID: 0}
 --- !u!114 &11499900
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -103,12 +104,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pv: 10
-  ressourcesMat: 400
-  ressourcesWeap: 400
-  population: 10
+  ressourcesMat: 600
+  ressourcesWeap: 600
   gold: 500
-  pv1: 10
-  pv2: 10
+  population: 20
+  populationSend: 0
   exp: 0
 --- !u!114 &11499902
 MonoBehaviour:
@@ -134,23 +134,99 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stock: {fileID: 0}
-  phase: 30
-  timez1: 3
-  timez2: 3
-  timez3: 3
-  times: 3
-  nbzombies1: 1
-  nbzombies2: 0
-  nbzombies3: 0
+  nbzombies1Change:
+    serializedVersion: 2
+    m_Curve:
+    - time: -.000516875065
+      value: .991998434
+      inSlope: 10.1376781
+      outSlope: 10.1376781
+      tangentMode: 10
+    - time: .0995936766
+      value: 2.00688696
+      inSlope: 5.03081608
+      outSlope: 5.03081608
+      tangentMode: 10
+    - time: .201121002
+      value: 1.99916625
+      inSlope: -.0760456249
+      outSlope: -.0760456249
+      tangentMode: 10
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  nbzombies2Change:
+    serializedVersion: 2
+    m_Curve:
+    - time: -.00100322557
+      value: -.00366964377
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: .511190057
+      value: .997492552
+      inSlope: 2.0211277
+      outSlope: 2.0211277
+      tangentMode: 10
+    - time: .999126494
+      value: 2.0161078
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  nbzombies3Change:
+    serializedVersion: 2
+    m_Curve:
+    - time: -.000613522949
+      value: .000282049179
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: .200624049
+      value: -.00375068188
+      inSlope: -.762343407
+      outSlope: -.762343407
+      tangentMode: 0
+    - time: .308403373
+      value: 1.01175809
+      inSlope: 2.22474337
+      outSlope: 2.22474337
+      tangentMode: 0
+    - time: .425278962
+      value: -.999012053
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: .495940626
+      value: -.000206116587
+      inSlope: 16.6392288
+      outSlope: 16.6392288
+      tangentMode: 10
+    - time: .60093236
+      value: 2.00969362
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  nbzombies1Start: 2
+  nbzombies2Start: 3
+  nbzombies3Start: 2
   nbsurvivor: 1
   _phasesManager: {fileID: 0}
   ressourcesMatText: {fileID: 0}
   ressourcesWeapText: {fileID: 0}
+  goldText: {fileID: 0}
   pvText: {fileID: 0}
   scores: {fileID: 0}
-  goldText: {fileID: 0}
-  Survivants: []
   isTheEnemyBase: 0
+  _inGameMenuButtonScript: {fileID: 0}
+  popText: {fileID: 0}
+  LoginsTexts:
+  - {fileID: 0}
+  - {fileID: 0}
+  winnerObject: {fileID: 0}
+  loserObject: {fileID: 0}
 --- !u!148 &14899898
 NetworkView:
   m_ObjectHideFlags: 1
