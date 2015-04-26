@@ -7,13 +7,32 @@ Direct3D:
     VRAM:     1018 MB (via DXGI)
     Caps:     Shader=30 DepthRT=1 NativeDepth=1 NativeShadow=1 DF16=1 INTZ=1 RAWZ=0 NULL=1 RESZ=1 SlowINTZ=1
 Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\Julien\Desktop 2\Dropbox\Knockerz\KnockerZ_Beta\Builds\KnockerZ_Beta_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\Julien\Desktop 2\Dropbox\Knockerz\KnockerZ_Beta\Builds\KnockerZ_Beta_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\Julien\Desktop 2\Dropbox\Knockerz\KnockerZ_Beta\Builds\KnockerZ_Beta_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\Julien\Desktop 2\Dropbox\Knockerz\KnockerZ_Beta\Builds\KnockerZ_Beta_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\Julien\Desktop 2\Dropbox\Knockerz\KnockerZ_Beta\Builds\KnockerZ_Beta_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\Julien\Desktop 2\Dropbox\Knockerz\KnockerZ_Beta\Builds\KnockerZ_Beta_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.097 seconds
+Platform assembly: C:\Users\Julien\Documents\Knockerz\bin\beta\KnockerZ_Beta_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Julien\Documents\Knockerz\bin\beta\KnockerZ_Beta_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Julien\Documents\Knockerz\bin\beta\KnockerZ_Beta_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Julien\Documents\Knockerz\bin\beta\KnockerZ_Beta_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Julien\Documents\Knockerz\bin\beta\KnockerZ_Beta_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Julien\Documents\Knockerz\bin\beta\KnockerZ_Beta_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+- Completed reload, in  0.271 seconds
 desktop: 1600x900 60Hz; virtual: 2624x981 at -1024,-81
 <RI> Initializing input.
 <RI> Input initialized.
+Platform assembly: C:\Users\Julien\Documents\Knockerz\bin\beta\KnockerZ_Beta_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Julien\Documents\Knockerz\bin\beta\KnockerZ_Beta_Data\Managed\System.dll (this message is harmless)
+UnloadTime: 3.616980 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 11864.
+Total: 8.018231 ms (FindLiveObjects: 1.140475 ms CreateObjectMapping: 0.069290 ms MarkObjects: 5.302544 ms  DeleteObjects: 0.469637 ms)
+
+UnloadTime: 28.286053 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 88 unused Assets to reduce memory usage. Loaded Objects now: 631.
+Total: 2.386683 ms (FindLiveObjects: 0.081609 ms CreateObjectMapping: 0.068777 ms MarkObjects: 0.878197 ms  DeleteObjects: 0.412665 ms)
+
+Level 'Tuto' (-1) couldn't be loaded because it has not been added to the build settings.
+To add a level to the build settings use the menu File->Build Settings...
+ 
+(Filename:  Line: 276)
+
