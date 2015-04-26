@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: f10264c9efa3f0a4081977d03b0db332
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - door: {instanceID: 0}
+  - _startPosition: {instanceID: 0}
+  - _destination: {instanceID: 0}
+  - otherDoor: {instanceID: 0}
+  - _otherstartPosition: {instanceID: 0}
+  - _otherdestination: {instanceID: 0}
+  - _camera: {instanceID: 0}
+  - _phasesManager: {instanceID: 0}
+  - lifeSprite: {instanceID: 0}
+  - inBase: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
