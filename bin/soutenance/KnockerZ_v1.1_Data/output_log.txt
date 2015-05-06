@@ -1,0 +1,186 @@
+Initialize engine version: 4.6.3f1 (4753d8b6ef2b)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 9.0c [aticfx32.dll 8.17.10.1129]
+    Renderer: ATI Mobility Radeon HD 4650
+    Vendor:   ATI
+    VRAM:     1018 MB (via DXGI)
+    Caps:     Shader=30 DepthRT=1 NativeDepth=1 NativeShadow=1 DF16=1 INTZ=1 RAWZ=0 NULL=1 RESZ=1 SlowINTZ=1
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Julien\Desktop 2\KnockerZ_v1.1_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Julien\Desktop 2\KnockerZ_v1.1_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Julien\Desktop 2\KnockerZ_v1.1_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Julien\Desktop 2\KnockerZ_v1.1_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Julien\Desktop 2\KnockerZ_v1.1_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Julien\Desktop 2\KnockerZ_v1.1_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+- Completed reload, in  0.083 seconds
+<RI> Initializing input.
+<RI> Input initialized.
+desktop: 1600x900 60Hz; virtual: 2624x981 at -1024,-81
+Platform assembly: C:\Users\Julien\Desktop 2\KnockerZ_v1.1_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Julien\Desktop 2\KnockerZ_v1.1_Data\Managed\System.dll (this message is harmless)
+UnloadTime: 4.544474 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 37703.
+Total: 21.158445 ms (FindLiveObjects: 4.792896 ms CreateObjectMapping: 0.164245 ms MarkObjects: 14.588614 ms  DeleteObjects: 0.553302 ms)
+
+sendto failed with code -1 for char 9 and length 1464.
+sendto failed with code -1 for char 9 and length 1464.
+sendto failed with code -1 for char 9 and length 1464.
+Received pong from 172.20.10.7:25000
+ 
+(Filename:  Line: 836)
+
+View ID SceneID: 1294 Level Prefix: 0 not found during lookup. Strange behaviour may occur
+ 
+(Filename:  Line: 1681)
+
+Received state update for view id' SceneID: 1294 Level Prefix: 0' but the NetworkView doesn't exist
+ 
+(Filename:  Line: 2474)
+
+View ID SceneID: 1061 Level Prefix: 0 not found during lookup. Strange behaviour may occur
+ 
+(Filename:  Line: 1681)
+
+Received state update for view id' SceneID: 1061 Level Prefix: 0' but the NetworkView doesn't exist
+ 
+(Filename:  Line: 2474)
+
+View ID SceneID: 778 Level Prefix: 0 not found during lookup. Strange behaviour may occur
+ 
+(Filename:  Line: 1681)
+
+Received state update for view id' SceneID: 778 Level Prefix: 0' but the NetworkView doesn't exist
+ 
+(Filename:  Line: 2474)
+
+View ID SceneID: 1068 Level Prefix: 0 not found during lookup. Strange behaviour may occur
+ 
+(Filename:  Line: 1681)
+
+Received state update for view id' SceneID: 1068 Level Prefix: 0' but the NetworkView doesn't exist
+ 
+(Filename:  Line: 2474)
+
+View ID SceneID: 454 Level Prefix: 0 not found during lookup. Strange behaviour may occur
+ 
+(Filename:  Line: 1681)
+
+Received state update for view id' SceneID: 454 Level Prefix: 0' but the NetworkView doesn't exist
+ 
+(Filename:  Line: 2474)
+
+View ID SceneID: 454 Level Prefix: 0 not found during lookup. Strange behaviour may occur
+ 
+(Filename:  Line: 1681)
+
+Received state update for view id' SceneID: 454 Level Prefix: 0' but the NetworkView doesn't exist
+ 
+(Filename:  Line: 2474)
+
+View ID SceneID: 454 Level Prefix: 0 not found during lookup. Strange behaviour may occur
+ 
+(Filename:  Line: 1681)
+
+Received state update for view id' SceneID: 454 Level Prefix: 0' but the NetworkView doesn't exist
+ 
+(Filename:  Line: 2474)
+
+View ID SceneID: 454 Level Prefix: 0 not found during lookup. Strange behaviour may occur
+ 
+(Filename:  Line: 1681)
+
+Received state update for view id' SceneID: 454 Level Prefix: 0' but the NetworkView doesn't exist
+ 
+(Filename:  Line: 2474)
+
+View ID SceneID: 454 Level Prefix: 0 not found during lookup. Strange behaviour may occur
+ 
+(Filename:  Line: 1681)
+
+Received state update for view id' SceneID: 454 Level Prefix: 0' but the NetworkView doesn't exist
+ 
+(Filename:  Line: 2474)
+
+View ID SceneID: 454 Level Prefix: 0 not found during lookup. Strange behaviour may occur
+ 
+(Filename:  Line: 1681)
+
+Received state update for view id' SceneID: 454 Level Prefix: 0' but the NetworkView doesn't exist
+ 
+(Filename:  Line: 2474)
+
+View ID SceneID: 454 Level Prefix: 0 not found during lookup. Strange behaviour may occur
+ 
+(Filename:  Line: 1681)
+
+Received state update for view id' SceneID: 454 Level Prefix: 0' but the NetworkView doesn't exist
+ 
+(Filename:  Line: 2474)
+
+View ID SceneID: 454 Level Prefix: 0 not found during lookup. Strange behaviour may occur
+ 
+(Filename:  Line: 1681)
+
+Received state update for view id' SceneID: 454 Level Prefix: 0' but the NetworkView doesn't exist
+ 
+(Filename:  Line: 2474)
+
+View ID SceneID: 454 Level Prefix: 0 not found during lookup. Strange behaviour may occur
+ 
+(Filename:  Line: 1681)
+
+Received state update for view id' SceneID: 454 Level Prefix: 0' but the NetworkView doesn't exist
+ 
+(Filename:  Line: 2474)
+
+View ID SceneID: 454 Level Prefix: 0 not found during lookup. Strange behaviour may occur
+ 
+(Filename:  Line: 1681)
+
+Received state update for view id' SceneID: 454 Level Prefix: 0' but the NetworkView doesn't exist
+ 
+(Filename:  Line: 2474)
+
+View ID SceneID: 454 Level Prefix: 0 not found during lookup. Strange behaviour may occur
+ 
+(Filename:  Line: 1681)
+
+Received state update for view id' SceneID: 454 Level Prefix: 0' but the NetworkView doesn't exist
+ 
+(Filename:  Line: 2474)
+
+View ID SceneID: 454 Level Prefix: 0 not found during lookup. Strange behaviour may occur
+ 
+(Filename:  Line: 1681)
+
+Received state update for view id' SceneID: 454 Level Prefix: 0' but the NetworkView doesn't exist
+ 
+(Filename:  Line: 2474)
+
+View ID SceneID: 454 Level Prefix: 0 not found during lookup. Strange behaviour may occur
+ 
+(Filename:  Line: 1681)
+
+Received state update for view id' SceneID: 454 Level Prefix: 0' but the NetworkView doesn't exist
+ 
+(Filename:  Line: 2474)
+
+<RI.Hid> Failed to create device file:
+ 1f Un périphérique attaché au système ne fonctionne pas correctement.
+
+ 
+(Filename:  Line: 54)
+
+The server has disconnected from the client. Most likely the server has shut down.
+ 
+(Filename:  Line: 745)
+
+UnloadTime: 87.939743 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 1086 unused Assets to reduce memory usage. Loaded Objects now: 783.
+Total: 12.103886 ms (FindLiveObjects: 0.142688 ms CreateObjectMapping: 0.230970 ms MarkObjects: 1.238002 ms  DeleteObjects: 9.503156 ms)
+
